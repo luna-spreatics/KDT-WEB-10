@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>css_03</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      @font-face {
+        font-family: "TTWanjudaedunsancheB";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/TTWanjudaedunsancheB.woff2")
+          format("woff2");
+        font-weight: 700;
+        font-style: normal;
+      }
+      .google {
+        font-family: "Pacifico", cursive;
+      }
+      .noon {
+        font-family: "TTWanjudaedunsancheB";
+      }
+      .box {
+        width: 200px;
+        height: 200px;
+        text-align: center;
+        font-size: 16px;
+        line-height: 4; /* 요소의 글꼴 크기의 배수로 지정*/
+        background-color: yellow;
+      }
+      button {
+        border: 1px solid black;
+        background-color: white;
+      }
+
+      button:hover {
+        border: 1px solid transparent;
+        background-color: orange;
+      }
+
+      .square {
+        width: 100px;
+        height: 100px;
+        border: 1px solid;
+        display: inline-block;
+      }
+      .d-none {
+        /* display: none; */
+        background-color: red;
+      }
+      .invisible {
+        /* visibility: hidden; */
+        background-color: orangered;
+      }
+
+      .opacity-0 {
+        /* opacity: 0; */
+        background-color: tomato;
+      }
+
+      .scroll {
+        overflow: scroll;
+      }
+      .auto {
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body style="margin: 0">
+    <!-- line-height -->
+    <div class="box">
+      <p>text</p>
+    </div>
+
+    <!-- font-family -->
+    <p class="google">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo at quas vel
+      molestias reiciendis repellendus consequatur tenetur officia corporis
+      velit sit nostrum corrupti consectetur inventore magnam, voluptatum
+      laborum, deleniti quod!
+    </p>
+    <p class="noon">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo at quas vel
+      molestias reiciendis repellendus consequatur tenetur officia corporis
+      velit sit nostrum corrupti consectetur inventore magnam, voluptatum
+      laborum, deleniti quod!
+    </p>
+
+    <!-- inline & block -->
+    <span style="background-color: yellow; width: 100px"><div>Hello</div></span>
+    <span style="background-color: yellow">World</span>
+
+    <div style="background-color: orange; width: 100px; display: inline-block">
+      <div>Hello</div>
+    </div>
+    <div style="background-color: red; display: inline-block; width: 200px">
+      world
+    </div>
+
+    <!-- margin: auto -->
+    <div
+      style="width: 200px; height: 200px; background-color: blue; margin: auto"
+    ></div>
+
+    <span>margin 마이너스?</span>
+    <div
+      style="
+        width: 200px;
+        height: 200px;
+        background-color: aliceblue;
+        margin: -10px;
+      "
+    ></div>
+
+    <!-- width & height -->
+    <div style="background-color: aqua; width: 100vw; height: 100px"></div>
+
+    <!-- max-width & max-height & min-width & min-height -->
+    <div
+      style="
+        background-color: orange;
+        width: Calc(30vw - 100px);
+        height: 30vw;
+        max-width: 300px;
+        min-width: 200px;
+      "
+    ></div>
+
+    <!-- border -->
+    <button>버튼</button>
+    <div style="border: 2px solid black; width: 200px; height: 200px"></div>
+
+    <h4>visibility</h4>
+    <div class="square">original</div>
+    <div class="square d-none">d-none</div>
+    <div class="square invisible">invisible</div>
+    <div class="square opacity-0">opacity-0</div>
+    <div class="square">original</div>
+
+    <!-- overflow -->
+    <h4>overflow</h4>
+    <div class="square scroll">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum aliquam
+      eaque at, beatae consectetur reprehenderit provident omnis totam, adipisci
+      vel sapiente? Quisquam saepe dolorum molestias numquam dolorem deserunt
+      impedit eos.
+    </div>
+    <div class="square auto">Lorem ipsum</div>
+  </body>
+</html>

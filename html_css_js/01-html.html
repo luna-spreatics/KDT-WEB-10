@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>01-html</title>
+  </head>
+  <body>
+    <h1>h1태그 입니다.</h1>
+    <h2>h2태그 입니다.</h2>
+    <h3>h3태그 입니다.</h3>
+    <h4>h4태그 입니다.</h4>
+    <h5>h5태그 입니다.</h5>
+    <h6>h6태그 입니다.</h6>
+    <p>
+      본문 입니다. <br />
+      두 번째 줄입니다.
+    </p>
+    <!-- type 마커 모양 : disc, circle, square, none -->
+    <ul type="circle">
+      <li>사과</li>
+      <li>바나나</li>
+      <li>포도</li>
+    </ul>
+    <!-- type : 1, A, a, I, i  -->
+    <!-- start : 시작 번호 -->
+    <!-- reversed : 역순으로 -->
+    <ol type="i" start="3" reversed>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ol>
+    <hr />
+    <!-- 서버 이미지 -->
+    <img
+      src="https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*"
+      alt="dog"
+    />
+    <!-- 상대 경로 -->
+    <img src="./dog.jpg" />
+    <!-- 절대 경로 -->
+    <img
+      src="C:\Users\sarah\Desktop\강의\수업자료\웹\src\html_css_js\dog.jpg
+      "
+      alt="dog"
+    />
+    <br />
+    <a href="https://www.naver.com" target="_blank">네이버 (blank)</a>
+    <a href="https://www.naver.com" target="_self">네이버 (self)</a>
+    <form>
+      <input type="button" value="버튼" />
+      <input type="text" />
+      <input type="password" />
+      <input type="checkbox" name="fruits" value="apple" checked />apple
+      <input type="checkbox" name="fruits" value="banana" />banana
+      <input type="radio" name="sex" value="men" checked />남자
+      <input type="radio" name="sex" value="women" />여자
+      <input type="datetime-local" />
+      <select>
+        <optgroup label="커피">
+          <option value="americano">아메리카노</option>
+          <option value="caffe-latte" selected>카페라떼</option>
+          <option value="espresso">에스프레소</option>
+        </optgroup>
+        <optgroup label="티">
+          <option value="earl-grey">얼그레이티</option>
+          <option value="jasmine">자스민티</option>
+        </optgroup>
+      </select>
+    </form>
+    <table border="1" cellspacing="0" cellpadding="5" width="300" height="100">
+      <tr>
+        <th>이름</th>
+        <th>나이</th>
+        <th>전화번호</th>
+      </tr>
+      <tr>
+        <td rowspan="2">김세령</td>
+        <td colspan="2">10</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>010-0000-0000</td>
+      </tr>
+      <tr>
+        <td>김세령</td>
+        <td>10</td>
+        <td>010-0000-0000</td>
+      </tr>
+    </table>
+  </body>
+</html>
