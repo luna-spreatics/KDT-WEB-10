@@ -1,18 +1,90 @@
 <html>
-  <body>
-    <!-- 실습 3 -->
-    <table border="1" cellspacing="0" cellpadding="5" width="250" height="150">
-      <tr>
-        <td colspan="2">1</td>
-        <td rowspan="2">2</td>
-      </tr>
-      <tr>
-        <td rowspan="2">3</td>
-        <td>center</td>
-      </tr>
-      <tr>
-        <td colspan="2">4</td>
-      </tr>
-    </table>
-  </body>
+
+<body>
+  <!-- 실습 1 -->
+  <h1>Cafe Hello World</h1>
+  <ul>
+    <li>
+      <h2>아이스 아메리카노</h2>
+      <i>4,000원</i>
+    </li>
+    <li>
+      <h2>아이스 카페라떼</h2>
+      <i>4,000원</i>
+    </li>
+    <li>
+      <h2>아이스 바닐라라떼</h2>
+      <i>4,000원</i>
+    </li>
+  </ul>
+  <hr>
+  <p>
+    아이스 아메리카노 : 
+  </p>
+  
+  <!-- 실습 2 -->
+  <h4>설문조사</h4>
+  이름<input type="text"><br>
+  이메일<input type="email" placeholder="love@example.com"><br>
+  <h4>나이</h4>
+  <input type="radio" name="age" value="10대">
+  <input type="radio" name="age" value="10대">
+  <input type="radio" name="age" value="10대">
+  <h4>원하는 강의(복수응답 가능합니다)</h4>
+  <input type="checkbox" name="lecture" value="html">html
+  <input type="checkbox" name="lecture" value="js">js
+  <input type="checkbox" name="lecture" value="css">css
+  <br>
+  <textarea cols="100" rows="10" placeholder="하고싶은 말을 써주세요 :)"></textarea>
+  <input type="button" value="제출">
+  
+
+  <!-- 실습 3 -->
+  <table border="1" cellspacing="0" cellpadding="5" width="250" height="150">
+    <tr>
+      <td colspan="2" align="right">1</td>
+      <td rowspan="2">2</td>
+    </tr>
+    <tr>
+      <td rowspan="2">3</td>
+      <td>center</td>
+    </tr>
+    <tr>
+      <td colspan="2">4</td>
+    </tr>
+  </table>
+
+  <!-- 실습 4 -->
+  <table border="1" cellspacing="0" cellpadding="5">
+    <tr>
+      <th>구분</th>
+      <th>음료</th>
+      <th>가격</th>
+      <th>이미지</th>
+    </tr>
+    <tr>
+      <td rowspan="2">커피류</td>
+      <td>아메리카노</td>
+      <td>4200원</td>
+      <td><img src="./coffee.PNG" alt="coffee"></td>
+    </tr>
+    <tr>
+      <td>돌체라떼</td>
+      <td>4800원</td>
+      <td><img src="./coffee.PNG" alt="coffee"></td>
+    </tr>
+    <tr>
+      <td rowspan="2">주스류</td>
+      <td>자바칩 프라푸치노</td>
+      <td rowspan="2">5000원</td>
+      <td><img src="./coffee.PNG" alt="coffee"></td>
+    </tr>
+    <tr>
+      <td>녹차 프라푸치노</td>
+      <td><img src="./coffee.PNG" alt="coffee"></td>
+    </tr>
+  </table>
+
+</body>
+
 </html>

@@ -26,7 +26,24 @@
       p.lion {
         background-color: red;
       }
-      /* 등등 */
+      ul > .lion {
+        background-color: greenyellow;
+      }
+      #tiger {
+        background-color: yellow;
+      }
+      .lion {
+        color: sienna;
+      }
+      .zoo .lion {
+        font-weight: 900;
+      }
+      #tiger + li {
+        background-color: skyblue;
+      }
+      ul > li.lion ~ li {
+        background-color: orange;
+      }
     </style>
 
     <!-- 4번 -->
@@ -58,7 +75,8 @@
     <h1>복합선택자 사용 연습</h1>
     <p>동물원에 왔어요</p>
     <div class="zoo">
-      <ui>
+      <ul>
+        <!-- 원래 문법에서는 ul 안에 span X 연습하려 만든 것 -->
         <span>여긴 사파리</span>
         <li>곰</li>
         <li id="tiger">호랑이</li>
@@ -67,7 +85,7 @@
         <li class="lion">사자2</li>
         <li>사육사 강씨</li>
         <li>사육사 송씨</li>
-      </ui>
+      </ul>
       <span class="lion">사파리 밖의 사자</span>
     </div>
     <p class="lion">야생의 사자</p>
