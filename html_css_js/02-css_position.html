@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>position</title>
+    <style>
+      body {
+        /* 위치 명확하게 보기 위해 추가 */
+        margin: 0;
+
+        /* position: fixed 에서 스크롤 되어도 움직이지 않음을 보여주기 위함 */
+        background: linear-gradient(white, orange);
+        height: 2000px;
+      }
+
+      div {
+        width: 100px;
+        height: 100px;
+        font-weight: 700;
+        text-align: center;
+        line-height: 100px; /*세로 가운데 정렬*/
+      }
+
+      /* static: 기본값 */
+      /*
+      - 기본 값이기 때문에 따로 작성하지 않아도 됨 (주석처리를 하던/안하던 결과 동일)
+      - inline 요소라면 왼쪽에서 오른쪽으로 쌓임
+      - block 요소라면 위에서 부터 아래로 차곡차곡 쌓임
+      */
+      /* top, bottom, right, left 속성 적어도 영향 없음 */
+      .position-static {
+        background-color: pink;
+        /* position: static; */
+      }
+
+      /* relative: 상대 위치 */
+      /* 일반적인 흐름에 따라 배치하되, top, bottom, right, left 중 하나 이상을 작성 */
+      /* 
+      - 자신이 원래 있어야 하는 위치 기준
+      - top: 위로 부터의 여백
+      - bottom: 아래로 부터의 여백
+      - right: 오른쪽으로 부터의 여백
+      - left: 왼쪽으로 부터의 여백
+      */
+      .position-relative {
+        /* 자기자리를 벗어나도 자기 자리가 비어있음 (문서 흐름을 깨지 않음?)*/
+        background-color: aquamarine;
+        position: relative;
+
+        left: 100px;
+        /* top: 100px; */
+        /* bottom: 100px; */
+        /* right: 100px; */
+        /* left: 100px; */
+      }
+
+      /* absolute: 절대 위치 */
+      /* 
+      누구를 기준?
+      - position: static이 아닌 값을 갖는 제일 가까운 조상 기준
+      - position: static이 아닌 값을 갖는 조상이 없다면? body 태그 기준임!
+      - 특정 요소를 기준 삼아 top, bottom, right, left 중에 하나 이상을 지정해야 함
+      */
+      .position-absolute {
+        /* 문서흐름을 벗어남 : 자기자리가 아예 없어짐 */
+        background-color: gold;
+        position: absolute;
+        /* left: 100px; */
+        bottom: 0;
+      }
+
+      /* fixed: 고정위치 */
+      /* 
+      - viewport(화면에 보이는 것) 기준으로 특정 위치에 배치
+      - 스크롤되어도 움직이지 않음? 계속 보인다 -> header 제작시 많이 이용
+      - top, bottom, right, left 중 하나 이상을 지정
+      */
+      .position-fixed {
+        background-color: coral;
+        position: fixed;
+        /* 아무것도 안쓰면 화면 줄일경우 안보임..(h2,h1 태그들이 있을 경우에만) */
+        /* bottom: 0; */
+        /* top: 0;
+        left: 0;
+        width: 100%; */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <h2>position(static, relative, absolute, fixed)</h2>
+    <h1>CSS Position에 대해 배워보자</h1>
+    <h2>static, relative, absolute, fixed</h2> -->
+    <div class="position-static">static</div>
+    <div class="position-relative">relative1</div>
+    <!-- i) absolute: body 요소 기준 -->
+    <!-- ii) absolute: static이 아닌 요소 기준 ->fixed & relative 안에 넣기 -->
+
+    <!-- 코드를 짜다가 어떤걸 기준으로 삼고 싶을 때는 기준으로 삼고싶은 요소에 
+  relative를 써주면 된다! relative는 문서흐름을 벗어나지 않으니까! -->
+    <div class="position-absolute">absolute(body)</div>
+    <div style="position: relative; background-color: aquamarine">
+      <div style="background-color: aquamarine">rel-absolute</div>
+      <div class="position-absolute">absolute</div>
+    </div>
+    <div class="position-fixed">fixed</div>
+    <div class="position-relative">relative2</div>
+  </body>
+</html>
