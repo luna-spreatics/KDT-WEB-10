@@ -36,11 +36,40 @@
     </style>
   </head>
   <body>
+    <!-- position 실습 -->
     <div class="container">
       <div class="box" style="background-color: red"></div>
       <div class="box relative" style="background: orange">item1</div>
       <div class="box absolute" style="background: yellow">item2</div>
       <div class="box fixed" style="background: green">item3</div>
+    </div>
+
+    <!-- z-index 실습 -->
+    <div class="container">
+      <div
+        class="box"
+        style="background: orange; position: relative; z-index: 1"
+      >
+        item1
+      </div>
+      <div
+        class="box"
+        style="background: yellow; position: absolute; top: 30px; left: 30px"
+      >
+        item2
+      </div>
+      <div
+        class="box"
+        style="
+          background: green;
+          position: absolute;
+          z-index: 1;
+          top: 60px;
+          left: 60px;
+        "
+      >
+        item3
+      </div>
     </div>
   </body>
 </html>
