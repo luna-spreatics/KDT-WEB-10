@@ -1,0 +1,78 @@
+<html>
+  <head>
+    <style>
+      div {
+        background-color: orange;
+        /* background-image: url(https://item.kakaocdn.net/do/d84248170c2c52303db27306a00fb861f604e7b0e6900f9ac53a43965300eb9a); */
+        width: 500px;
+        height: 500px;
+      }
+      .background-image {
+        background-image: url("https://item.kakaocdn.net/do/d84248170c2c52303db27306a00fb861f604e7b0e6900f9ac53a43965300eb9a");
+
+        /* 1. background-repeat */
+        background-repeat: repeat; /* default */
+        background-repeat: repeat-x;
+        background-repeat: repeat-y;
+        background-repeat: no-repeat;
+
+        /* 2.background-position */
+        /* background-position: left top; */
+        /* background-position: center; */
+        /* background-position: 10px 10px; */
+        /* 숫자값을 하나만 입력하면 x축에 대해서만 적용 */
+        /* background-position: 100px; */
+
+        /* 3. background-size */
+        /* cover: 더 넓은 값에 맞춤,
+            contain: 더 짧은 값에 맞춤
+         */
+        background-size: auto; /* default */
+        background-size: 100px;
+        /* background-size: 100px 50px; */
+        /* background-size: cover; */
+        background-size: contain;
+      }
+      .scroll {
+        background-image: url("https://item.kakaocdn.net/do/d84248170c2c52303db27306a00fb861f604e7b0e6900f9ac53a43965300eb9a");
+        overflow: scroll;
+        /* 4. background-attachment */
+        background-attachment: local;
+        background-attachment: scroll;
+        /* viewport 기준 */
+        background-attachment: fixed;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background-image"></div>
+    <div class="scroll">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. A delectus
+      ratione corrupti excepturi repudiandae animi officiis ipsum, quibusdam
+      quos fuga culpa sequi. Tempora dignissimos, laudantium quis asperiores
+      dolorum impedit laboriosam. Ad nulla neque quam dolor, optio fugit.
+      Voluptatibus, nihil sit? Sunt, voluptatibus! Explicabo, consectetur
+      magnam! Aspernatur ratione dolor atque dolore vero, quaerat quisquam natus
+      dicta omnis ut neque qui aliquam? Cum placeat quae alias excepturi
+      molestiae expedita pariatur, ea, asperiores non voluptas laborum.
+      Similique minus quae dolore quibusdam quos, non mollitia ad vero aut
+      dignissimos cupiditate nihil quas reiciendis. Alias! Iure repellendus hic
+      dicta amet mollitia soluta exercitationem at natus quas. Neque, aut, nemo
+      quasi alias fugiat, magnam quia autem voluptatem voluptas officia
+      mollitia? Neque ullam saepe amet deserunt non. Lorem ipsum dolor sit amet
+      consectetur adipisicing elit. A delectus ratione corrupti excepturi
+      repudiandae animi officiis ipsum, quibusdam quos fuga culpa sequi. Tempora
+      dignissimos, laudantium quis asperiores dolorum impedit laboriosam. Ad
+      nulla neque quam dolor, optio fugit. Voluptatibus, nihil sit? Sunt,
+      voluptatibus! Explicabo, consectetur magnam! Aspernatur ratione dolor
+      atque dolore vero, quaerat quisquam natus dicta omnis ut neque qui
+      aliquam? Cum placeat quae alias excepturi molestiae expedita pariatur, ea,
+      asperiores non voluptas laborum. Similique minus quae dolore quibusdam
+      quos, non mollitia ad vero aut dignissimos cupiditate nihil quas
+      reiciendis. Alias! Iure repellendus hic dicta amet mollitia soluta
+      exercitationem at natus quas. Neque, aut, nemo quasi alias fugiat, magnam
+      quia autem voluptatem voluptas officia mollitia? Neque ullam saepe amet
+      deserunt non.
+    </div>
+  </body>
+</html>
