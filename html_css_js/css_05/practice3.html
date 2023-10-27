@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width='device-width', initial-scale=1.0" />
+    <title>실습4. 원 움직이기</title>
+
+    <style>
+      .ball {
+        background-color: pink;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+
+        position: absolute;
+
+        animation-name: move;
+        animation-iteration-count: 6;
+        animation-duration: 3s;
+      }
+
+      @keyframes move {
+        0% {
+          top: 0;
+          left: 0;
+        }
+        25% {
+          top: 0;
+          left: 500px;
+        }
+        50% {
+          top: 500px;
+          left: 500px;
+        }
+        75% {
+          top: 500px;
+          left: 0;
+        }
+        100% {
+          top: 0;
+          left: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ball"></div>
+  </body>
+</html>
