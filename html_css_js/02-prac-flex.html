@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex prac</title>
+    <style>
+        .container {
+            background-color: coral;
+            width: 500px;
+            height: 500px;
+            display: flex;
+        }
+
+        .container div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+
+        .direction {
+            /* 끝점을 기준으로 쌓이도록 */
+            /* flex-direction: row-reverse; */
+            /* 세로 방향으로 쌓이도록 */
+            flex-direction: column;
+        }
+
+        .item1 {
+            background-color: pink;
+        }
+
+        .item2 {
+            background-color: skyblue;
+        }
+
+        .item3 {
+            background-color: lime;
+        }
+
+        .nowrap{
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .wrap {
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- flex-direction -->
+    <!-- <div class="container direction">
+        <div class="item1">item1</div>
+        <div class="item2">item2</div>
+        <div class="item3">item3</div>
+    </div> -->
+
+    <!-- flex wrap -->
+    <div class="container nowrap">
+        <div>item1</div>
+        <div>item2</div>
+        <div>item3</div>
+        <div>item4</div>
+        <div>item5</div>
+        <div>item6</div>
+        <div>item7</div>
+        <div>item8</div>
+    </div>
+    <!-- <div class="container wrap">
+        <div>item1</div>
+        <div>item2</div>
+        <div>item3</div>
+        <div>item4</div>
+        <div>item5</div>
+        <div>item6</div>
+        <div>item7</div>
+        <div>item8</div>
+    </div> -->
+</body>
+
+</html>
