@@ -57,6 +57,7 @@
         color: red;
       }
       .fruits div:first-child {
+        /* 하위 오렌지 선택됨 */
         color: violet;
       }
       /* last-child */
@@ -70,6 +71,9 @@
       /* nth-child(n) */
       .fruits *:nth-child(2n) {
         background-color: yellow;
+      }
+      .fruits *:nth-child(2n+1) {
+        text-decoration: line-through;
       }
       /* not */
       .fruits *:not(span) {
@@ -91,9 +95,9 @@
         background-color: lightgray;
       }
 
-      /* *:not([placeholder]) {
+      *:not([placeholder]) {
         background-color: blue;
-      } */
+      }
     </style>
   </head>
   <body>
