@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 문자열 관련 메소드
+      let str = " Happy day~!";
+
+      // 1. 문자열 길이 확인
+      console.log("length : ", str.length);
+
+      // 2. (영어) 문자열을 모두 대문자/소문자로 바꾸기
+      console.log("toUpperCase : ", str.toUpperCase());
+      console.log("toLowerCase : ", str.toLowerCase());
+
+      // 3. index를 가져오기
+      console.log("index : ", str.indexOf("y"));
+      console.log("index : ", str.lastIndexOf("y"));
+
+      // 4. 문자열 자르기 ( 첫번째는 필수, 두번째는 선택)
+      console.log("slice : ", str.slice(0, 6));
+
+      // 5. 바꾸기
+      // replace : 제일 먼저 찾아지는 한 친구만 바꾼다.
+      console.log("replace p -> a : ", str.replace("p", "a"));
+      // replaceAll : replace와 다르게 찾아지는 모든 요소를 변경한다.
+      console.log("replaceAll a -> k : ", str.replaceAll("a", "k"));
+
+      // 6. 반복 ( repeat )
+      console.log("repeat : ", str.repeat(10));
+      console.log("repeat : ", str * 10);
+
+      // 7. split : 문자열을 내가 원하는 부분에서 자르고, 그걸 리스트로 만들어주는 친구
+      // 기준이 되는 값은 사라져요.
+      console.log("split : ", str.split(""));
+      console.log("split : ", str.split(" "));
+      console.log("split : ", str.split("a"));
+
+      // 8. trim() : 좌우 공백 제거
+      console.log("trim 전 : ", str);
+      console.log("trim 후 : ", str.trim());
+
+      // 배열 관련 메소드
+      // push() pop()~~~
+    </script>
+  </head>
+  <body></body>
+</html>

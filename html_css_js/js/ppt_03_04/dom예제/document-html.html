@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div id="div"></div>
+    <script>
+      let divList = document.getElementsByTagName("div");
+
+      let divList2 = document.querySelectorAll("div");
+
+      console.log("divList : ", divList);
+      console.log("divList2 : ", divList2);
+
+      console.log("-------------요소추가-----------");
+
+      let div = document.getElementById("div");
+      let div1 = document.createElement("div");
+      div.append(div1);
+
+      console.log("divList : ", divList);
+      console.log("divList2 : ", divList2);
+
+      console.log("-------------요소삭제-----------");
+
+      div.remove();
+      console.log("divList : ", divList);
+      console.log("divList2 : ", divList2);
+    </script>
+  </body>
+</html>

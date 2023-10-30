@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 전역변수랑 지역변수
+      let a = prompt("첫번째 숫자");
+      a = Number(a);
+      let b = prompt("두번째 숫자");
+      b = Number(b);
+
+      function add() {
+        let result = a + b;
+        alert(result);
+      }
+      function sub() {
+        alert(a - b);
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="add()">add</button>
+    <button onclick="sub()">sub</button>
+    <button onclick="div()">div</button>
+    <button onclick="mul()">mul</button>
+  </body>
+</html>

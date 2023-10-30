@@ -1,0 +1,54 @@
+html collection 과 nodelist 차이
+
+1. 텍스트 노드 포함 여부
+<div id="top">
+      Text Node
+      <div>div Element node 1</div>
+      <div>div Element node 2</div>
+    </div>
+
+HTMLCollection 은 "요소 노드"만 가져온다.
+NodeList는 "요소 노드, 속성 노드, 텍스트 노드 모두 포함한다."
+
+------------------------------------------
+
+2. 자식 요소 노드 접근 방법
+HTMLCollection 은 id, name 또는 인덱스로 자식 요소 노드에 접근 가능하다.
+const parentDiv = document.getElementById("parent").children;
+
+// 인덱스로 접근
+console.log(parentDiv[2]);
+
+// id로 접근
+console.log(parentDiv.namedItem("id-div1"));
+
+// name으로 접근
+console.log(parentDiv.namedItem("nm-div1"));
+
+NodeList는 namedItem() 메서드를 가지고 있지 않아 id, name으로 자식 요소 노드에 접근이 불가능하다.
+const parentDiv = document.getElementById("parent").childNodes;
+
+// 인덱스로 접근
+console.log(parentDiv[2]);
+
+
+------------------------------------------
+
+3. 동적 및 정적
+htmlcollection은 DOM에 추가된 새로운 요소를 가져오지만 NodeList는 가져오지 못한다.
+
+------------------------------------------
+
+4. 반복문
+htmlcollection은 실제 배열이 아닌 배열과 유사한 객체이ㅣㄱ 때문에 forEach 가 없다.
+const parentDiv = document.getElementById("parent").children;
+
+for(childItem of parentDiv) {
+  console.log(childItem);
+}
+
+nodelist는 실제 배열이기 때문에 forEach를 사용 가능하다.
+
+
+
+

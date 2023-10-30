@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+      }
+      .box1 {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div">asdfsdf</div>
+    <button onclick="addClass()">addClass</button>
+    <button onclick="removeClass()">removeClass</button>
+    <button onclick="toggleClass()">toggleClass</button>
+    <button onclick="containClass()">containClass</button>
+
+    <script>
+      let div = document.getElementById("div");
+      function addClass() {
+        div.classList.add("box");
+      }
+      function removeClass() {
+        div.classList.remove("box");
+      }
+      function toggleClass() {
+        div.classList.toggle("box1");
+      }
+      function containClass() {
+        alert(div.classList.contains("box1"));
+      }
+    </script>
+  </body>
+</html>

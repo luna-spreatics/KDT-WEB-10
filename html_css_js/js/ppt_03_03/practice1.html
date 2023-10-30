@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      let arr1 = [];
+      for (let i = 0; i < 100; i++) {
+        arr1.push(i + 1);
+      }
+
+      let sum1 = 0;
+      for (let i = 1; i < arr1.length + 1; i++) sum1 += i;
+      console.log("1번 sum : ", sum1);
+
+      let sum2 = 0;
+      for (let i of arr1) sum2 += i;
+      console.log("2번 sum : ", sum2);
+
+      let sum3 = 0;
+      arr1.forEach((a) => (sum3 += a));
+      console.log("3번 sum : ", sum3);
+    </script>
+  </head>
+</html>
