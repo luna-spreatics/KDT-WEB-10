@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
+      integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0="
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      .container {
+        height: 2000px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input type="text" name="id" id="id" />
+      <input type="text" name="pw" id="pw" />
+    </div>
+    <button type="button">버튼</button>
+
+    <script>
+      /*
+      ready: 돔 트리 생성 완료 후
+      load: 모든 페이지 구성 요소 완료 후
+       ready -> load 실행순
+      */
+      window.addEventListener("load", function () {});
+      $(document).ready(function () {
+        $(".container").append(`<h1>안녕2</h1>`);
+      });
+      $(window).on("load", function () {
+        $(".container").append(`<h1>안녕4</h1>`);
+      });
+      $(window).ready(function () {
+        $(".container").append(`<h1>안녕</h1>`);
+      });
+
+      $(function () {
+        // ready와 동일
+        $(".container").append(`<h1>안녕3</h1>`);
+      });
+
+      // $("button").on("click", function() {
+      //     alert("클릭!")
+      // })
+
+      // 요소 영역에 마우스가 올라가는 순간
+      $("button").mouseover(function () {
+        alert("클릭!");
+      });
+
+      // hover 요소 영역에 마우스가 올라가 있는 동안
+      // $("button").hover(function() {
+      //     alert("클릭!")
+      // })
+
+      $(window).scroll(function () {
+        console.log("scrolling");
+      });
+
+      $("input").keyup(function (e) {
+        console.log(e.currentTarget);
+        console.log(this);
+
+        console.log(e.key === "Enter");
+      });
+    </script>
+  </body>
+</html>

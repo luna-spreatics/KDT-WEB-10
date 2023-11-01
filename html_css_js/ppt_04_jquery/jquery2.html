@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery method</title>
+    <!-- jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.min.js"
+      integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      /* val() */
+      function getValue() {
+        let value = $("input").val();
+        // let value = document.querySelector('input').value;
+        alert(value);
+      }
+
+      function setValue() {
+        $("input").val("설정!!!!");
+      }
+
+      /* css() */
+      function changeCssJS() {
+        let span = document.querySelector("span");
+        span.style = "font-size: 20px; color:red;";
+      }
+
+      function changeCssJquery() {
+        $("span").css("font-size", "40px");
+        $("span").css("color", "blue");
+        console.log($("span").css("color"));
+      }
+
+      /* attr() */
+      function changeAttrJS() {
+        let a = document.querySelector("a");
+        a.setAttribute("href", "https://www.naver.com");
+      }
+
+      function changeAttrJquery() {
+        $("a").attr("href", "https://www.daum.net");
+      }
+
+      /* text() */
+      function changeTextJS() {
+        let p = document.querySelector(".p-text");
+        p.innerText = "<b>js</b> 로 바꿨습니다.";
+      }
+
+      function changeTextJquery() {
+        $(".p-text").text("<b>jquery</b>로 바꿨습니다.");
+      }
+
+      /* html() */
+      function changeHtmlJS() {
+        let p = document.querySelector(".p-html");
+        p.innerHTML = "<b>js</b> 로 바꿨습니다.";
+      }
+
+      function changeHtmlJquery() {
+        $(".p-html").html("<b>jquery</b>로 바꿨습니다.");
+      }
+
+      /* 요소 추가 */
+      /* append() */
+
+      function appendJS() {
+        let li = document.createElement("li");
+        li.innerText = "append()로 추가된 js";
+        let ul = document.querySelector(".colors");
+        ul.append(li);
+      }
+
+      function appendJquery() {
+        $(".colors").append("<li>append()로 추가된 jquery</li>");
+      }
+
+      /* prepend() */
+      function prependJS() {}
+
+      function prependJquery() {}
+
+      /* after() */
+      function afterJS() {
+        let green = document.querySelector(".green");
+        let li = document.createElement("li");
+        li.innerText = "after() 형제요소로 추가된 js";
+
+        green.after(li);
+      }
+
+      function afterJquery() {
+        $(".green").after("<li>after() 형제요소로 추가된 jquery</li>");
+      }
+
+      /* before() */
+      function beforeJS() {}
+
+      function beforeJquery() {}
+
+      /* 요소 삭제 */
+      /* remove() */
+      function removeJS() {
+        let li = document.querySelector("#li2");
+        li.remove();
+      }
+
+      function removeJquery() {
+        $("#li2").remove();
+      }
+
+      /* empty() */
+      function emptyJS() {
+        let nums = document.querySelector("ul.nums");
+        nums.innerHTML = "";
+      }
+
+      function emptyJquery() {
+        $("ul.nums").empty();
+      }
+
+      /* 요소 탐색 */
+      function findParent() {
+        // parent() : 부모요소 반환
+        console.log($(".child2").parent());
+      }
+
+      function findParents() {
+        // parents() : 조상요소 전부 반환
+        // js는 없는 메소드
+        console.log($(".child2").parents());
+      }
+
+      function findNext() {
+        // next() : nextSibling
+        console.log($(".child2").next());
+      }
+
+      function findPrev() {
+        // prev() : previousSibling
+        console.log($(".child2").prev());
+      }
+
+      function findChildren() {
+        // children() : 자식 요소 모두 반환, js에서의 children 과 동일
+        console.log($(".parent").children());
+        console.log(document.querySelector(".parent").children);
+      }
+
+      // 클래스 조작
+      function addClass() {
+        $("#hi").addClass("fs-50");
+      }
+
+      function removeClass() {
+        // $('#hi').removeClass('fs-50'); // 특정 클래스 제거
+        $("#hi").removeClass(); // 클래스 모두 제거
+      }
+
+      function hasClass() {
+        // true나 false로 반환
+        console.log($("#hi").hasClass("fs-50"));
+      }
+
+      function toggleClass() {
+        $("#hi").toggleClass("bg-pink");
+      }
+    </script>
+    <style>
+      body {
+        padding-bottom: 300px;
+      }
+
+      /* 클래스 조작 */
+      .color-blue {
+        color: blue;
+      }
+
+      .fs-50 {
+        font-size: 50px;
+      }
+
+      .bg-pink {
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>jQuery method</h1>
+    <h2>val()</h2>
+    <input type="text" />
+    <button type="button" onclick="getValue();">값 가져오기</button>
+    <button type="button" onclick="setValue();">값 설정하기</button>
+
+    <hr />
+    <h2>css()</h2>
+    <span>안뇽</span>
+    <br />
+    <button type="button" onclick="changeCssJS();">js로 바꾸기</button>
+    <button type="button" onclick="changeCssJquery();">jquery로 바꾸기</button>
+    <hr />
+
+    <h2>attr()</h2>
+    <a href="https://www.google.com">google</a>
+    <br />
+    <button type="button" onclick="changeAttrJS();">js로 바꾸기</button>
+    <button type="button" onclick="changeAttrJquery();">jquery로 바꾸기</button>
+
+    <hr />
+
+    <h2>text()</h2>
+    <p class="p-text">안녕하세요!</p>
+    <button type="button" onclick="changeTextJS();">js로 바꾸기</button>
+    <button type="button" onclick="changeTextJquery();">jquery로 바꾸기</button>
+    <hr />
+
+    <h2>html()</h2>
+    <p class="p-html">안녕하세요!</p>
+    <button type="button" onclick="changeHtmlJS();">js로 바꾸기</button>
+    <button type="button" onclick="changeHtmlJquery();">jquery로 바꾸기</button>
+
+    <hr />
+    <h2>요소 추가하기</h2>
+    <ul class="colors">
+      <li class="orange">orange</li>
+      <li class="green">green</li>
+      <li class="navy">navy</li>
+    </ul>
+
+    <h3>append() : 선택된 요소의 맨 마지막 자식으로 추가</h3>
+    <button type="button" onclick="appendJS();">js로 바꾸기</button>
+    <button type="button" onclick="appendJquery();">jquery로 바꾸기</button>
+
+    <h3>prepend() : 선택된 요소의 맨 처음 자식으로 추가</h3>
+    <button type="button" onclick="prependJS();">js로 바꾸기</button>
+    <button type="button" onclick="prependJquery();">jquery로 바꾸기</button>
+
+    <h3>after() : 선택된 요소의 이전 형제로 추가</h3>
+    <button type="button" onclick="afterJS();">js로 바꾸기</button>
+    <button type="button" onclick="afterJquery();">jquery로 바꾸기</button>
+
+    <h3>before() : 선택된 요소의 다음 형제로 추가</h3>
+    <button type="button" onclick="beforeJS();">js로 바꾸기</button>
+    <button type="button" onclick="beforeJquery();">jquery로 바꾸기</button>
+
+    <hr />
+    <h2>요소 삭제하기</h2>
+    <ul class="nums">
+      <li>1</li>
+      <li id="li2">2</li>
+      <li>3</li>
+    </ul>
+
+    <h3>remove()</h3>
+    <button type="button" onclick="removeJS();">js로 바꾸기</button>
+    <button type="button" onclick="removeJquery();">jquery로 바꾸기</button>
+
+    <h3>empty()</h3>
+    <button type="button" onclick="emptyJS();">js로 바꾸기</button>
+    <button type="button" onclick="emptyJquery();">jquery로 바꾸기</button>
+
+    <h2>요소 탐색</h2>
+    <div class="ancestor">
+      <div class="parent">
+        <div class="child1">자식1</div>
+        <div class="child2">자식2</div>
+        <div class="child3">자식3</div>
+      </div>
+    </div>
+
+    <button type="button" onclick="findParent()">부모찾기</button>
+    <button type="button" onclick="findParents()">조상 모두 찾기</button>
+    <button type="button" onclick="findNext()">다음 형제 찾기</button>
+    <button type="button" onclick="findPrev()">이전 형제 찾기</button>
+    <button type="button" onclick="findChildren()">모든 자식 찾기</button>
+
+    <hr />
+    <h2>클래스 조작하기</h2>
+    <p id="hi" class="color-blue">안녕하세요!</p>
+    <button type="button" onclick="addClass();">클래스 추가</button>
+    <button type="button" onclick="removeClass();">클래스 삭제</button>
+    <button type="button" onclick="hasClass();">클래스 유무 확인</button>
+    <button type="button" onclick="toggleClass();">클래스 토글</button>
+  </body>
+</html>
