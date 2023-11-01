@@ -9,9 +9,10 @@ section {
   width: 700px;
   height: 450px;
   position: absolute;
+  /* 가운데 위치시키기: top과 left를 50퍼를 주면 정 중앙이 배치하는 것의 왼쪽 꼭지점이 오게 된다. */
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -40%);
+  transform: translate(-50%, -50%);
 }
 
 section .sky {
@@ -23,26 +24,26 @@ section .sky {
 section .sky .sun {
   width: 180px;
   position: absolute;
-  top: -160px;
+  /* top: -160px;
   left: 0;
-  margin-left: -90px;
+  margin-left: -90px; */
   animation: sun 10s linear infinite;
 }
 
 section .sky .moon {
   width: 160px;
   position: absolute;
-  top: -160px;
+  /* top: -160px;
   left: 0;
-  margin-left: -80px;
+  margin-left: -80px; */
   animation: moon 10s linear infinite;
 }
 
 section .sky .cloud_1 {
   width: 160px;
   position: absolute;
-  left: 0%;
-  top: -30px;
+  /* left: 0%;
+  top: -30px; */
   animation: cloud_1 10s linear infinite;
 }
 
