@@ -20,6 +20,14 @@ function solution(n) {
   if (n % 2 !== 0) answer += "수";
 
   return answer;
+
+  // for(let i = 1; i <= n; i++) {
+  //     i % 2 == 1 ? answer += '수' : answer += '박';
+  // }
+
+  // const watermelon = '수박';
+  // answer = watermelon.repeat(Number(n)).slice(0, n);
+
 }
 
 // 실습 5
@@ -55,9 +63,16 @@ function solution(n) {
 
 // 실습 7
 function solution(numbers) {
-  var answer = 0;
-  for (let i = 1; i < 10; i++) {
-    if (!numbers.includes(i)) answer += i;
-  }
-  return answer;
+  // var answer = 0;
+  // for (let i = 1; i < 10; i++) {
+  //   if (!numbers.includes(i)) answer += i;
+  // }
+  // return answer;
+
+  // var answer = 0;
+  // let test = [0,1,2,3,4,5,6,7,8,9];
+  // test.forEach((t) => {
+  //   if(!numbers.includes(t)) answer += t;
+  // })
+  // return answer;
 }
