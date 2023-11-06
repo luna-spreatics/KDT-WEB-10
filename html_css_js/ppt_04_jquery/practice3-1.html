@@ -14,12 +14,12 @@
         height: 100px;
         color: black;
       }
-      tr > td:first-child > p,
-      tr > th:first-child > p {
+      tr > td:first-child,
+      tr > th:first-child {
         color: red;
       }
-      tr > td:last-child > p,
-      tr > th:last-child > p {
+      tr > td:last-child,
+      tr > th:last-child {
         color: blue;
       }
       td > p:hover {
@@ -108,7 +108,8 @@
     </table>
 
     <script>
-      var target;
+      let target;
+
       $("td > p").on("click", function (obj) {
         $("#date").val("");
         $("#content").val("");
@@ -121,6 +122,11 @@
         var content = $("#content").val();
 
         $(target.parentNode).append("<span>" + content + "</span><br />");
+        // 같은 의미
+        // $(target).parent().append("<span>" + content + "</span><br />");
+
+        // $("#date").val("");
+        $("#content").val("");
       }
     </script>
   </body>
