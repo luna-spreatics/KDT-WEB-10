@@ -24,11 +24,31 @@
         }
       }
 
-      @media (min-width: 481px) and (max-width: 180px) {
-        .more {
+      /* ~부터 ~까지 범위 작성 가능 */
+      /* @media (min-width: 300px) and (max-width: 600px) { */
+      /* 비교 연산자 사용 가능 */
+      @media (300px<= width <= 600px) {
+        .more-and-less {
           background-color: purple;
         }
       }
+
+      /* ---------------------------------- */
+      /* 추가) 가로 세로 모드 */
+      /* 크롬 개발자도구 device tool 설명 */
+      /* @media screen and (orientation: landscape) {
+        landscape(가로) 모드일 때 적용할 CSS
+        body {
+          background-color: pink;
+        }
+      }
+
+      @media screen and (orientation: portrait) {
+        portrait(세로) 모드일 때 적용할 CSS
+        body {
+          background-color: gold;
+        }
+      } */
     </style>
   </head>
   <body>
