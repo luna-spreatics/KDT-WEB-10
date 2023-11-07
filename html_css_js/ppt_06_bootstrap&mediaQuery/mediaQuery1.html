@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>반응형 웹</title>
+    <style>
+      /* all : 모든 경우 */
+      @media all and (min-width: 300px) {
+        .all {
+          font-size: 2rem;
+        }
+      }
+
+      /* print: 인쇄 기기와 인쇄 미리보기 */
+      @media print and (min-width: 300px) {
+        .print {
+          font-size: 2rem;
+        }
+      }
+
+      /* screen : print 이외의 모든 기기 */
+      @media screen and (min-width: 300px) {
+        .screen {
+          font-size: 2rem;
+        }
+      }
+
+      /* ---------------------------------- */
+      /* 그렇다면 미디어 유형을 작성하지 않은 경우에는? */
+      /* 자동으로 screen 적용 */
+      @media (min-width: 300px) {
+        .no-media {
+          font-size: 2rem;
+        }
+      }
+
+      /* ---------------------------------- */
+      /* 크기 규칙을 정하지 않은 경우에는? */
+      /* 크기 규칙 상관 없이 모든 미디어 유형에서 적용 */
+      @media all {
+        .all {
+          font-size: 2rem;
+        }
+      }
+
+      @media print {
+        .print {
+          font-size: 2rem;
+        }
+      }
+
+      @media screen {
+        .screen {
+          font-size: 2rem;
+        }
+      }
+
+      /* ---------------------------------- */
+      /* 추가) 가로 세로 모드 */
+      /* 크롬 개발자도구 device tool 설명 */
+      @media screen and (orientation: landscape) {
+        /* landscape(가로) 모드일 때 적용할 CSS */
+        body {
+          background-color: pink;
+        }
+      }
+
+      @media screen and (orientation: portrait) {
+        /* portrait(세로) 모드일 때 적용할 CSS */
+        body {
+          background-color: gold;
+        }
+      }
+
+      /* ---------------------------------- */
+      /* 화면 넓이 480기준 이하 이상 실습 */
+      /* 
+      @media screen and (max-width: 480px) {
+          body {
+               back
+          }
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="all">all</div>
+    <div class="print">print</div>
+    <div class="screen">screen</div>
+    <div class="no-media">no-media-type</div>
+    <hr />
+    <span class="more">more 480px</span>
+    <span class="less">less 480px</span>
+    <hr />
+    <span class="more-and-less">more and less</span>
+  </body>
+</html>
