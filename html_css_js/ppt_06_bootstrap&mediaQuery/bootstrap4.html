@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- CSS 불러오기 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <!-- JS 불러오기 -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div>
+      <!-- 가로 너비를 12로 분할하여 전달받은 값만큼 할당 -->
+      <div class="row mb-3 bg-secondary">
+        <div class="col bg-info">1</div>
+        <div class="col bg-danger">1</div>
+        <div class="col bg-info">1</div>
+        <div class="col bg-danger">1</div>
+        <div class="col bg-info">1</div>
+        <div class="col bg-danger">1</div>
+        <div class="col bg-info">1</div>
+        <div class="col bg-danger">1</div>
+        <div class="col bg-info">1</div>
+        <div class="col bg-danger">1</div>
+        <div class="col bg-info">1</div>
+        <div class="col bg-danger">1</div>
+      </div>
+
+      <!-- 동일한 너비 -->
+      <div class="row mb-3">
+        <div class="col bg-info">1</div>
+        <div class="col bg-danger">1</div>
+      </div>
+      <div class="row mb-3">
+        <div class="col bg-info">1</div>
+        <div class="col bg-danger">1</div>
+        <div class="col bg-info">1</div>
+      </div>
+
+      <!-- 각자 다른 너비 -->
+      <div class="row mb-3">
+        <div class="col-3 bg-info">1</div>
+        <div class="col-6 bg-danger">2</div>
+        <div class="col-3 bg-info">1</div>
+      </div>
+
+      <!-- 만약 col의 총 합이 12가 아니라면? -->
+      <div class="row mb-3 bg-secondary">
+        <div class="col-1 bg-info">1</div>
+        <div class="col-2 bg-danger">2</div>
+        <div class="col-1 bg-info">1</div>
+      </div>
+
+      <!-- 가운데 요소만 너비를 지정하는 경우 -->
+      <div class="row mb-3">
+        <div class="col bg-info">1</div>
+        <div class="col-7 bg-danger">2</div>
+        <div class="col bg-info">1</div>
+      </div>
+
+      <!-- breakpoint 사용 가능 -->
+      <div class="row">
+        <div class="col col-md-8 bg-danger">기본 절반, md 이상 8</div>
+        <div class="col col-md-4 bg-info">기본 절반, md 이상 4</div>
+      </div>
+    </div>
+  </body>
+</html>

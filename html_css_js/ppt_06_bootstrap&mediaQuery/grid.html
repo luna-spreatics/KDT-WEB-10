@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grid Layout</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+      .grid-container {
+        display: grid;
+        /* grid-template-columns : 가로를 8개로 나누어 공간의 1만큼 */
+        grid-template-columns: repeat(8, 1fr);
+        /*  grid-template-rows : 세로를 4로 나누어 100px씩 */
+        grid-template-rows: repeat(4, 100px);
+        box-sizing: border-box;
+      }
+      .item1 {
+        background-color: #f94144;
+        /* grid의 열 방향으로 8개의 grid track을 차지한다. */
+        /* span: 확장함 */
+        grid-column: span 8;
+      }
+      .item2 {
+        background-color: #f3722c;
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+      .item3 {
+        background-color: #f8961e;
+        grid-column: span 4;
+      }
+      .item4 {
+        background-color: #43aa8b;
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+      .item5 {
+        background-color: #f9c74f;
+        grid-column: span 2;
+      }
+      .item6 {
+        background-color: #90be6d;
+        grid-column: span 2;
+      }
+      .item7 {
+        background-color: #577590;
+        grid-column: 1 / -1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-item item1">item</div>
+      <div class="grid-item item2">item</div>
+      <div class="grid-item item3">item</div>
+      <div class="grid-item item4">item</div>
+      <div class="grid-item item5">item</div>
+      <div class="grid-item item6">item</div>
+      <div class="grid-item item7">item</div>
+    </div>
+  </body>
+</html>
