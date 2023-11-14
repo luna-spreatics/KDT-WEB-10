@@ -1,0 +1,103 @@
+// 구조 분해 할당
+// 1. 배열 구조 분해 할당
+// - 배열 구조 분해 할당시 "순서" 중요
+const arr1 = [1, 2, 3, 4, 5];
+const arr2 = ['a', 'b', 'c'];
+
+const [one, two, three, four, five] = arr1; // 1 2 3 4 5
+console.log(one, two, three, four, five);
+const [x, y, z, alpha] = arr2;
+console.log(x, y, z, alpha); // a b c undefined
+
+let num1 = 1;
+let num2 = 3;
+console.log('swap 전 >', num1, num2);
+[num2, num1] = [num1, num2]; // [num2, num1] = [1, 3]
+console.log('swap 후 >', num1, num2);
+
+const lists = ['apple', 'grape'];
+[f1, f2, f3 = 'orange'] = lists;
+console.log(f1, f2, f3);
+
+// 2. 객체 구조 분해 할당
+// - 변수를 선언하는 순서는 중요하지 않음
+// - 키 값과 변수명이 일치해야 함
+const obj = {
+  title: '엘리멘탈',
+  content: '재밌어요',
+  num: 5,
+};
+// 객체 구조 분해 쓰지 않았을 때
+console.log(obj.title, obj.content, obj.num);
+console.log(obj['title'], obj['content'], obj['num']);
+
+// 객체 구조 분해 쓰고 싶다면
+// key 가 존재하지 않을 때를 대비하여 = 연산자를 이용하면 default 값을 할당
+const { num, title, content, star = 1000 } = obj;
+console.log(title, content, num, star);
+
+const { n1, t1, c1 } = obj;
+console.log(n1, t1, c1); // undefined
+
+// 콜론(:)을 이용하면 새 변수명으로 바꿔서 저장할 수 있다!!
+const { title: t2, num: n2, content: c2 } = obj;
+console.log(t2, c2, n2);
+
+///////////////
+function getInfo(lecture) {
+  // TODO: 구조 분해 할당을 사용하여 값 추출
+  const { name, part, leader } = lecture;
+
+  // TODO: 출력 문장 생성
+  const output = `${name} 강의는 ${part} 개발을 공부합니다. 수업의 리더는 ${leader} 입니다.`;
+
+  return output;
+}
+
+const lectureInfo = {
+  name: 'SESAC x CODINGOn',
+  part: 'WEB',
+  leader: 'Sean',
+};
+
+const result = getInfo(lectureInfo);
+console.log(result); // SESAC x CODINGOn 강의는 WEB 개발을 공부합니다. 수업의 리더는 Sean 입니다.
+
+
+
+
+
+////////////////////////////////////////////////////////
+// 단축 평가
+// &&, ||
+
+// A && B : 두 개의 피연산자 모두 t면 t 반환
+// A || B : 두 개의 피연산자 중에서 하나만 t여도 t반환
+
+console.log(true && true); // true
+console.log(false && true); // false
+
+console.log(true || false); // true
+console.log(false || true); // true
+
+const xx = 5;
+const yy = 7;
+
+// 삼항연산자 예시
+const result1 = xx > yy ? 'xx가 큼' : 'yy가 큼';
+console.log(result1); // yy가 큼
+
+// 단축평가 (&&, 논리곱)
+const result2 = xx > yy && 'xx가 큼';
+console.log(result2); // false
+const result3 = xx < yy && 'yy가 큼';
+console.log(result3); // yy가 큼
+
+// 단축평가 (||, 논리합)
+const result4 = xx || 100; // 앞에가 t면 뒤에는 검사X
+console.log(result4); // 5
+
+const nameEx = '홍길동';
+const nameEx2 = null;
+console.log(nameEx || '이름없음'); // 홍길동
+console.log(nameEx2 || '이름없음'); // 이름없음
