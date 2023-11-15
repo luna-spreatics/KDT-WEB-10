@@ -75,3 +75,18 @@ const apt1 = new Apartment(2022, '래미안', 3, 20, 'KCC');
 console.log(apt1);
 console.log(apt1.getAptInfo());
 console.log(apt1.getWindow());
+
+// 실습
+class Shape {
+    constructor(width, height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    getArea() {
+        return this.width * this.height;
+    }
+}
+
+const rec1 = new Shape(3, 4);
+console.log(rec1.getArea());
