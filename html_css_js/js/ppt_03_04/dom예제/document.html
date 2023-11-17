@@ -129,5 +129,7 @@
 
     4. 
     - HTMLCollection[] : 실제 배열 x, 배열과 유사한 객체 , forEach를 사용 x
-    - NodeList[] : 실제 배열 o, forEach 문을 사용할 수 있다.
+    - NodeList[] : 실제 배열은 아니지만 메소드 존재(entries, forEach, item, keys, values),
+      Array.from(nodeList)를 사용하여 Array로 변환 가능.
+      https://developer.mozilla.org/ko/docs/Web/API/NodeList
 -->
