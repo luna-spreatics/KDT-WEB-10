@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>파일 업로드</title>
+
+  <!-- axios cdn -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <style>
+    body {
+      padding-bottom: 500px;
+    }
+
+    .profile {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      box-shadow: 0 0 20px #0002;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>파일 업로드</h1>
+
+  <!-- multer는 multipart가 아닌 폼에서는 동작하지 않음! 따라서 enctype="multipart/form-data" 속성 필수~ -->
+  <h2>Single file upload</h2>
+  <p>하나의 인풋에 하나의 파일을 업로드</p>
+  <form action="/upload" method="POST" enctype="multipart/form-data">
+    <input type="file" name="userfile" /><br />
+    <input type="text" name="title" /><br /><br />
+    <button type="submit">업로드</button>
+  </form>
+
+  <h2>Multi file upload v1</h2>
+  <p>하나의 인풋에 여러 개의 파일을 업로드</p>
+  <form action="/upload/array" method="POST" enctype="multipart/form-data">
+    <!-- 하나의 인풋에 여러 파일을 입력받고 싶다면 multiple 속성을 추가 -->
+    <input type="file" name="userfiles" multiple /><br />
+    <input type="text" name="title" /><br /><br />
+    <button type="submit">업로드</button>
+  </form>
+
+  <h2>Multi file upload v2</h2>
+  <p>여러 인풋에 각각의 파일을 업로드</p>
+  <form action="/upload/fields" method="POST" enctype="multipart/form-data">
+    <input type="file" name="userfile1" /><br />
+    <input type="text" name="title1" /><br /><br />
+    <input type="file" name="userfile2" /><br />
+    <input type="text" name="title2" /><br /><br />
+    <button type="submit">업로드</button>
+  </form>
+
+  <h2>동적 파일 업로드</h2>
+  <input type="file" name="dynamicUserfile" id="dynamic-file" /><br />
+  <button type="button" onclick="fileUpload()">업로드</button>
+  <br />
+  <!-- 업로드한 이미지를 보여줄 img 태그 요소 -->
+  <img src="" alt="" />
+
+  <script>
+    function fileUpload() {
+      console.log('동적 파일 업로드');
+      // js 만으로 폼을 전송 (파일데이터를 서버로 전송해야 하는 케이스)
+      // FormData 객체를 활용하면 쉽게 전송 가능!
+      // FormData란?
+      // form 태그의 데이터를 동적으로 제어할 수 있는 기능, 보통 axios/ajax... 함께 사용함
+      const formData = new FormData();
+      const file = document.querySelector('#dynamic-file');
+      console.dir(file);
+      console.dir(file.files); // 업로드한 파일 객체
+      console.dir(file.files[0]); // 업로드한 첫 파일
+
+      // append(key, value)
+      formData.append('dynamicUserfile', file.files[0]);
+
+      axios({
+        method: 'post',
+        url: '/dynamicFile',
+        data: formData,
+        headers: {
+          'Content-Type': 'multipart/form-data', // enctype="multipart/form-data"
+        },
+      }).then((res) => {
+        const { data } = res;
+        console.log(data);
+        console.log(data.path) // 이미지가 저장된 경로
+
+        const imgElem = document.querySelector('img');
+        imgElem.src = '/' + data.path;
+        imgElem.classList.add('profile')
+      });
+    }
+  </script>
+</body>
+
+</html>
