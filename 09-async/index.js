@@ -28,7 +28,7 @@ let product;
 let price;
 goMart();
 pickDrink();
-pay();
+pay(product, price);
 */
 //////////////////////////////////////////
 // 1. 콜백함수를 이용해 비동기 처리
