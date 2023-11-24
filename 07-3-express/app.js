@@ -6,8 +6,11 @@ const PORT = 8080;
 // console.log(__dirname + '/static'); // C:\Users\sesac\Documents\sesac-ydp-5\08-express/static
 
 app.set('view engine', 'ejs'); // express에서 사용할 템플릿 엔진 종류(ejs) 등록
-app.set('views', './views');
-// app.set('views', './views'); // 템플릿 엔진 파일을 저장할 위치 등록
+// app.set('views', './views'); // 템플릿 엔진 파일을 저장할 위치 등록 (views라는 폴더명 사용할 경우 생략가능)
+// app.set('views', __dirname + '/test/rename'); // 07-3-express/test/rename 의 폴더 구조
+// app.set('views', 'rename'); // 07-3-express/rename 의 폴더 구조
+
+
 // static 미들웨어 등록
 // static 이라는 실제 폴더를 public 이라는 이름으로 접근하겠다
 app.use('/public', express.static(__dirname + '/static'));
