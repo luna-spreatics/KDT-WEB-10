@@ -18,12 +18,19 @@ exports.getVisitors = (cb) => {
 
   // [After]
   conn.query(`SELECT * FROM visitor`, (err, rows) => {
-    if (err) {
-      throw err;
+    // 에러처리를 한다면?
+    try {
+      if (err) {
+        throw err;
+      }
+
+      console.log('Visitor.js: ', rows);
+      cb(rows);
+    } catch (err) {
+      console.log(err);
+      cb(false);
     }
 
-    console.log('Visitor.js: ', rows);
-    cb(rows);
   });
 };
 

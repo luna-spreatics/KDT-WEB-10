@@ -1,3 +1,16 @@
 {
-    "liveServer.settings.port": 5501
+  "liveServer.settings.port": 5501,
+  "emmet.includeLanguages": {
+    "ejs": "html",
+  },
+  "[html]": {
+    "editor.defaultFormatter": "j69.ejs-beautify"
+  },
+  "editor.formatOnSave": false,
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#b5f94f",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.inactiveBackground": "#b5f94f99",
+    "titleBar.inactiveForeground": "#15202b99"
+  },
 }
