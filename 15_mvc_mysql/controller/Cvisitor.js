@@ -8,6 +8,13 @@ exports.main = (req, res) => {
   res.render('index');
 };
 
+// (이후에 추가) 테이블 초기 셋팅 추가 코드
+// exports.main = (req, res) => {
+//   Visitor.initializeTable(() => {
+//     res.render('index');
+//   })
+// };
+
 // (2) GET /visitor => localhost:PORT/visitor
 exports.getVisitors = (req, res) => {
   // [Before]
