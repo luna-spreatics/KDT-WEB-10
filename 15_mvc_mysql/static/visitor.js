@@ -9,13 +9,13 @@ function createVisitor() {
 
   if (form.name.value.length === 0 || form.comment.value.length === 0) {
     alert('이름 또는 방명록 기입!!');
-    clearInput();
+    form.reset();
     return;
   }
 
   if (form.name.value.length > 10) {
     alert('이름은 10글자 미만!!');
-    clearInput();
+    form.reset();
     return;
   }
 
