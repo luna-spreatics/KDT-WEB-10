@@ -58,3 +58,11 @@ CREATE TABLE visitor2 (
   comment MEDIUMTEXT
 );
 SELECT * FROM visitor2;
+
+-- [user 실습] 새로운 데이터베이스 생성
+CREATE TABLE user (
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  userid VARCHAR(20) NOT NULL,
+  name VARCHAR(10) NOT NULL,
+  pw VARCHAR(20) NOT NULL
+);
