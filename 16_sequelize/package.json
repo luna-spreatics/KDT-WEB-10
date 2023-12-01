@@ -1,7 +1,7 @@
 {
   "name": "16_sequelize",
   "version": "1.0.0",
-  "description": "",
+  "description": "visitor - 수업 시간에 작성, user - 실습",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
