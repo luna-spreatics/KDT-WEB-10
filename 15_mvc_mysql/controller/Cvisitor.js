@@ -39,6 +39,22 @@ exports.getVisitor = (req, res) => {
     res.send(result);
   });
 };
+
+///////////// 프로미스 사용 코드 ///////////
+/*
+exports.get_visitor = async (req, res) => {
+  // [After]
+  try {
+      const result = await Visitor.getVisitors();
+      console.log('Cvisitor.js >', result);
+      res.render('visitor', { data: result });
+  } catch(err) {
+      console.log('Cvisitor.js err >', err);
+      res.status(500).render('visitor', { data: [] });
+  }
+}
+*/
+
 // *(6) GET /visitor/:id => localhost:PORT/visitor/:id
 // 단) 주의 params 사용시 라우터 정의 순서에 주의해야 함
 exports.getVisitor2 = (req, res) => {

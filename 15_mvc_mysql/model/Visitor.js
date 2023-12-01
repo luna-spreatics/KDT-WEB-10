@@ -8,6 +8,17 @@ const conn = mysql.createConnection({
   database: 'kdt',
 });
 
+/**
+ * creatConnection vs createPool
+ * // createConnection은 요청마다 연결을 생성하고 해제하지만 createPool은 연결을 재사용함
+    const pool = mysql.createPool({
+    host: 'localhost',
+    user: 'user',
+    password: '1234',
+    database: 'kdt',
+    })
+ */
+
 // 처음에 DB에 직접 값 넣는거 보여주고, DB 데이터 삭제 후, 코드 추가해서 보여주기
 exports.initializeTable = (cb) => {
   const createQuery = `
@@ -30,7 +41,7 @@ exports.initializeTable = (cb) => {
 
   conn.query(createQuery, (err, rows) => {
     if (err) throw err;
-    
+
     conn.query(selectQuery, (err, rows) => {
       if (err) throw err;
 
@@ -76,7 +87,7 @@ exports.getVisitors = (cb) => {
 // (6) GET /visitor => localhost:PORT/visitor?id=N
 exports.getVisitor = (id, cb) => {
   const sql = 'SELECT * FROM visitor WHERE id = ?';
-  conn.query(sql, [ id ], (err, rows) => {
+  conn.query(sql, [id], (err, rows) => {
     if (err) {
       throw err;
     }
@@ -89,7 +100,7 @@ exports.getVisitor = (id, cb) => {
 // *(6) GET /visitor/:id => localhost:PORT/visitor/:id
 exports.getVisitor2 = (id, cb) => {
   const sql = 'SELECT * FROM visitor WHERE id = ?';
-  conn.query(sql, [ id ], (err, rows) => {
+  conn.query(sql, [id], (err, rows) => {
     if (err) {
       throw err;
     }
@@ -104,15 +115,15 @@ exports.postVisitor = (data, cb) => {
   console.log(data);
   const sql = 'INSERT INTO visitor (name, comment) VALUES (?, ?)';
 
-  const values = [ data.name, data.comment ]
+  const values = [data.name, data.comment]
   conn.query(sql, values, (err, rows) => {
-      if (err) {
-        throw err;
-      }
+    if (err) {
+      throw err;
+    }
 
-      console.log('Visitor.js: ', rows);
-      cb(rows.insertId);
-    },
+    console.log('Visitor.js: ', rows);
+    cb(rows.insertId);
+  },
   );
 };
 
@@ -120,15 +131,15 @@ exports.postVisitor = (data, cb) => {
 exports.patchVisitor = (data, cb) => {
   console.log(data);
   const sql = 'UPDATE visitor SET name = ?, comment = ? WHERE id = ?';
-  const values = [ data.name, data.comment, data.id ];
+  const values = [data.name, data.comment, data.id];
   conn.query(sql, values, (err, rows) => {
-      if (err) {
-        throw err;
-      }
+    if (err) {
+      throw err;
+    }
 
-      console.log('Visitor.js: ', rows);
-      cb(rows); // true, rows(=true)
-    },
+    console.log('Visitor.js: ', rows);
+    cb(rows); // true, rows(=true)
+  },
   );
 };
 
@@ -136,7 +147,7 @@ exports.patchVisitor = (data, cb) => {
 exports.deleteVisitor = (id, cb) => {
   console.log(id);
   const sql = 'DELETE FROM visitor WHERE id = ?';
-  conn.query(sql, [id],  (err, rows) => {
+  conn.query(sql, [id], (err, rows) => {
     if (err) {
       throw err;
     }
@@ -145,3 +156,43 @@ exports.deleteVisitor = (id, cb) => {
     cb(true); // true, rows(=true)
   });
 };
+
+
+// -----------------------------------------------------------
+// promise 형태로 반환해서 컨트롤러에서 콜백함수 대신 프로미스 사용하기
+
+// v1) 프로미스 객체로 만들어서 반환
+/*
+exports.getVisitors = () => {
+    return new Promise((resolve, reject) => {
+        try {
+            conn.query(`SELECT * FROM visito`, (err, rows) => {
+                if (err) {
+                    // throw err;
+                    reject(err);
+                }
+                console.log('Visitor.js >', rows);
+                resolve(rows);
+            })
+        } catch (err) {
+            console.log('Visitor cathch >', err);
+            reject(err);
+        }
+    })
+}
+*/
+
+// v2) connection 객체를 프로미스 커넥션 형태로 변환
+/*
+const connPromise = conn.promise();
+
+exports.getVisitors = async () => {
+  try {
+    const [rows] = await connPromise.query(`SELECT * FROM visitor`);
+    return rows;
+  } catch (err) {
+    console.log('Visitor cathch >', err);
+    throw err;
+  }
+}
+*/
