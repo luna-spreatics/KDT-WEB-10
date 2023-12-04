@@ -59,23 +59,6 @@ exports.post_profile = (userid, cb) => {
 };
 
 exports.edit_profile = (data, cb) => {
-
-  /**
-   * // Prepared Statements를 사용하여 SQL 인젝션 방지
-    const query = 'UPDATE visitor SET name=?, comment=? WHERE id=?';
-    const values = [data.name, data.comment, data.id];
-
-    conn.query(query, values, (err, rows) => {
-      if (err) {
-        console.error('Error during update query: ', err);
-        throw err;
-      }
-
-      console.log('Visitor.js: ', rows);
-      cb(null, rows); // 에러가 없을 경우 첫 번째 매개변수는 null
-    });
-   */
-
   const sql = `UPDATE user SET userid='${data.userid}', name='${data.name}', pw='${data.pw}' WHERE id='${data.id}'`;
   conn.query(sql, (err, rows) => {
     if (err) {
