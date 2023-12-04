@@ -17,6 +17,9 @@ const Profile = require('./Profile')(sequelize, Sequelize);
 const Team = require('./Team')(sequelize, Sequelize);
 
 // TODO: 관계 형성
+// hasOne, hasMany 쪽이 sourceKey
+// belongsTo 쪽이 targetKey
+
 // 1) Player : Profile = 1 : 1
 // 한 선수 당 하나의 프로필을 가짐
 Player.hasOne(Profile, {
@@ -32,6 +35,12 @@ Profile.belongsTo(Player, { foreignKey: 'player_id', targetKey: 'player_id' });
 // 한 팀에는 여러 선수가 존재
 Team.hasMany(Player, { foreignKey: 'team_id', sourceKey: 'team_id' });
 Player.belongsTo(Team, { foreignKey: 'team_id', targetKey: 'team_id' });
+
+// N:M 관계의 경우 새로운 모델이 생성된다
+// Post
+// Post.belongsToMany(Hashtag, { through: 'PostHashtag' });
+// Hashtag
+// Hashtag.belongsToMany(Post, { through: 'PostHashtag' });
 
 // TODO: 관계 정의한 모델들을 db 객체에 저장
 db.Player = Player;
