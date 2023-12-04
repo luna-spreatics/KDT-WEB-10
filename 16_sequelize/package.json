@@ -1,0 +1,20 @@
+{
+  "name": "16_sequelize",
+  "version": "1.0.0",
+  "description": "visitor - 수업 시간에 작성, user - 실습",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "ejs": "3.1.9",
+    "express": "4.18.2",
+    "mysql2": "3.6.0",
+    "sequelize": "6.32.1",
+    "sequelize-cli": "6.6.1"
+  }
+}
