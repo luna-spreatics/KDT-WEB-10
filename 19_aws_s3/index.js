@@ -10,9 +10,9 @@ dotenv.config();
 
 //aws설정
 aws.config.update({
-  accessKeyId: process.env.S3_KEYID,
-  secretAccessKey: process.env.S3_ACCESSKEY,
-  region: process.env.S3_REGION,
+  accessKeyId: process.env.AWS_S3_KEY_ID,
+  secretAccessKey: process.env.AWS_S3_ACCESS_KEY,
+  region: process.env.AWS_S3_REGION,
 });
 //aws s3 인스턴스 생성
 const s3 = new aws.S3();
@@ -37,8 +37,9 @@ app.use("/uploads", express.static(__dirname + "/uploads"));
 const upload = multer({
   storage: multerS3({
     s3: s3,
-    bucket: process.env.S3_BUCKET,
+    bucket: process.env.AWS_S3_BUCKET,
     acl: "public-read", //파일접근권한 (public-read로 해야 업로드된 파일이 공개)
+    contentType: multerS3.AUTO_CONTENT_TYPE, // 자동 감지
     metadata: function (req, file, cb) {
       cb(null, { fieldName: file.fieldname });
     },
