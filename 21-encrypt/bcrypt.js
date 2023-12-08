@@ -11,10 +11,11 @@ const saltRounds = 10; // 솔트 라운드 수를 정의
 
 // 1. 비밀번호 해싱 함수
 function hashPassword(password) {
-  return bcrypt.hashSync(password, saltRounds);
+  return bcrypt.hashSync(password, saltRounds); // salt 자동 생성
 }
 
 // 2. 원본 비밀번호와 해시된 비밀번호가 일치하는지 확인하는 함수
+// 같은지 다른지만 알려줌
 function comparePassword(password, hashedPassword) {
   return bcrypt.compareSync(password, hashedPassword);
 }
