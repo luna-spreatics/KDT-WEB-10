@@ -13,7 +13,10 @@ const server = app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);
 });
 
-const wsServer = new ws.Server({ server }); // 웹 소켓 서버 접속
+// express 서버와 웹 소켓 서버를 연결 (같은 포트를 공유)
+const wsServer = new ws.Server({ server: server }); // 웹 소켓 서버 접속
+
+// const wsServer = new ws.Server({ port: 7000 }); // 다른 포트번호일 때
 
 const sockets = []; // 클라이언트들을 저장할 배열
 

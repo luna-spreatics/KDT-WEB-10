@@ -19,7 +19,7 @@
     </form>
 
     <script>
-      const socket = new WebSocket('ws://localhost:8080');
+      const socket = new WebSocket('ws://localhost:7000');
       // console.log(socket); // 클라이언트 소켓 객체
 
       const chatForm = document.querySelector('#chat'); // 폼 가져오기
@@ -51,20 +51,20 @@
         event.preventDefault();
 
         // input에 입력한 정보를 바탕으로 메세지 데이터 생성
-        const msg = chatForm.querySelector('#message');
-        const name = chatForm.querySelector('#name');
+        const msg = chatForm.message;
+        const name = chatForm.name;
         const data = { msg: msg.value, name: name.value };
         console.log('보내려는 메세지 데이터 ::', data);
 
         // 메세지 데이터를 웹 소켓 서버로 전송
         // 웹 소켓 서버가 데이터를 쉽게 처리할 수 있도록
         // (= 웹 소켓 서버가 js 언어를 쓰지 않을 수도 있으니)
+        // (문자열을 모든 프로그램에서 동일하다.) 그래서 JSON.stringify를 사용한다.
         // JSON 형식의 텍스트 데이터로 변환(직렬화, serialize)해서 웹 서버로 전송
         socket.send(JSON.stringify(data));
 
         // input 초기화
-        msg.value = '';
-        name.value = '';
+        chatForm.reset();
       });
     </script>
   </body>
