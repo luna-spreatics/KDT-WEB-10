@@ -5,7 +5,7 @@ const socket = { id: 'asdfasdfasdf2341234' };
 // js 에서 obj 에 key, value 추가하는 방법
 nickObjs.hello = '안녕';
 nickObjs['apple'] = '사과';
-nickObjs[socket.id] = 'sean';
+nickObjs[socket.id] = 'luna';
 console.log(nickObjs);
 
 // js 에서 obj 에 특정 key 가 존재하는 지 검사

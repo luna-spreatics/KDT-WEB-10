@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      #chat_container {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        background: rgb(212, 250, 235);
+      }
+
+      #chat {
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      #chat input {
+        width: 80%;
+      }
+
+      .my-chat {
+        display: flex;
+        justify-content: end;
+        padding: 2px 0px;
+      }
+
+      .my-chat p {
+        margin: 0;
+        padding: 10px;
+        background: #12b45b;
+        color: #ffffff;
+        margin-right: 10px;
+        border-radius: 10px;
+      }
+
+      .other-chat {
+        display: flex;
+        justify-content: start;
+        padding: 2px 0px;
+      }
+
+      .other-chat p {
+        margin: 0;
+        padding: 10px;
+        background: rgb(224, 224, 224);
+        margin-left: 10px;
+        border-radius: 10px;
+      }
+
+      #notice {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      #notice p {
+        margin: 0;
+      }
+
+      .secret-chat p {
+        background: #5e4caf;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 채팅 정보 입력 -->
+    <div id="info_container">
+      <form id="room">
+        <input type="text" id="roomName" placeholder="채팅방" />
+        <input type="text" id="userName" placeholder="닉네임" />
+        <button>만들기</button>
+      </form>
+      <h4>입장 가능한 채팅방 목록</h4>
+      <ul id="room_list"></ul>
+    </div>
+
+    <!-- 채팅창 UI -->
+    <div id="chat_container" hidden>
+      <div id="msg">
+        <div id="notice"></div>
+        <!-- 
+          <div class="my-chat">
+              <p>채팅테스트(나)</p>
+          </div>
+          <div class="other-chat">
+              <p>채팅테스트(상대방)</p>
+          </div> 
+        -->
+      </div>
+      <form id="chat">
+        <select id="userList"></select>
+        <input type="text" id="message" placeholder="메세지 입력" />
+        <button>입력</button>
+      </form>
+    </div>
+
+    <script>
+      const socket = io();
+      const roomForm = document.querySelector('#room');
+      const chatForm = document.querySelector('#chat');
+      const msg = document.querySelector('#msg');
+      const notice = document.querySelector('#notice');
+
+      let myName;
+
+      // 룸 리스트
+      socket.on('roomList', (roomLists) => {
+        console.log('채팅방 목록 :: ', roomLists);
+
+        const room_list = document.querySelector('#room_list');
+        room_list.textContent = ''; // 채팅 목록 갱신을 위해 비움
+
+        // 채팅방 목록 순회해서 목록 보이기
+        roomLists.forEach((roomList) => {
+          const li = document.createElement('li');
+          li.textContent = `${roomList}`;
+          room_list.appendChild(li);
+        });
+      });
+
+      // 사용자(클라이언트) 리스트
+      socket.on('userList', (userLists) => {
+        console.log('현재 채팅방에 접속한 모든 유저 :: ', userLists);
+
+        const lists = document.querySelector('#userList');
+        lists.textContent = ''; // 갱신을 위해 비움
+
+        let options = `<option value="all">전체</option>`;
+        for (let i of userLists) {
+          options += `<option value="${i.key}">${i.name}</option>`;
+        }
+
+        lists.innerHTML = options;
+      });
+
+      // 메세지 보내기
+      socket.on('newMessage', (message, nick) => {
+        console.log(`${nick} 님의 채팅 내용 :: ${message}`); // 메세지 보낸 사람, 메세지 내용
+        console.log('해당 클라이언트의 닉네임 :: ', myName); // 현재 클라이언트의 닉네임
+
+        const div = document.createElement('div'); // 부모 요소
+        const p = document.createElement('p'); // 자식 요소
+
+        if (myName === nick) {
+          // 본인 메세지
+          div.classList.add('my-chat');
+        } else {
+          // 다른 사람의 메세지
+          div.classList.add('other-chat');
+        }
+
+        // if (bool) {
+        //   div.classList.add("secret-chat");
+        // }
+
+        // 채팅 텍스트 구조 완성
+        p.textContent = `${nick} : ${message}`;
+        div.appendChild(p);
+        msg.appendChild(div);
+      });
+
+      // 입장 메세지 이벤트
+      socket.on('notice', (message) => {
+        const div = document.createElement('div');
+        const p = document.createElement('p');
+
+        p.textContent = message;
+        div.appendChild(p);
+        notice.appendChild(div);
+      });
+
+      // 폼 이벤트
+      roomForm.addEventListener('submit', (e) => {
+        e.preventDefault(); // 기본동작(새로고침) 막기
+
+        // 채팅방과 닉네임 폼요소 선택
+        const roomName = roomForm.querySelector('#roomName');
+        const userName = roomForm.querySelector('#userName');
+
+        // 빈 값 유효성 검사
+        if (roomName.value === '' || userName.value === '') {
+          alert('채팅방 이름과 닉네임을 작성해주세요 ^_^');
+          return;
+        }
+
+        // 서버에 방생성 요청
+        socket.emit('create', roomName.value, userName.value, () => {
+          const info_container = document.querySelector('#info_container'); // "채팅 정보 입력" 영역
+          const chat_container = document.querySelector('#chat_container'); // "채팅창 UI" 영역
+          info_container.hidden = true; // 가리고
+          chat_container.hidden = false; // 보이기
+
+          myName = userName.value; // 닉네임 저장
+        });
+      });
+
+      // 메시지 보내기
+      chatForm.addEventListener('submit', (e) => {
+        e.preventDefault(); // 기본동작(새로고침) 막기
+
+        const user = document.querySelector('#userList');
+        const message = document.querySelector('#message');
+        console.log('user.value :: ', user.value);
+
+        const msg = {
+          nick: myName,
+          user: user.value,
+          message: message.value,
+        };
+
+        socket.emit('sendMessage', msg);
+        message.value = '';
+      });
+    </script>
+  </body>
+</html>
