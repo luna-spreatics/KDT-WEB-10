@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 export default function FunctionComponent({ name }) {
   const student = '홍길동';
-  // const { name } = props;
+  const { name } = props;
   return (
     <div>
       <h1>Hi {student}!</h1>
