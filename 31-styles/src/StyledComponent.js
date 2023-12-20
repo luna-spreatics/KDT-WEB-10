@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 // CSS in JS: js 안에 css를 작성함
 // styled-components, emotion, styled-jsx, ...
+// 각 컴포넌트마다 격리된 스타일 적용가능
 const StyledContainer = styled.div`
   display: flex;
 `;
