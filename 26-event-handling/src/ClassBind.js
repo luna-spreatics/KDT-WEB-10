@@ -43,9 +43,14 @@ class ClassBind extends Component {
     console.log('this', this); // 현재 컴포넌트
     console.log('printConsole', this.state); // 현재 컴포넌트에 저장된 state
   };
+  // #1 클래스 컴포넌트에서 이벤트 쓰기 - bind 사용(render 안에서 bind)
+  printConsole2() {
+    console.log('this', this);
+    console.log('state', this.state);
+  }
 
   // 인자 전달하는 경우
-  printConsole2 = (msg) => {
+  printConsole3 = (msg) => {
     console.log(msg);
     console.log('this', this); // 현재 컴포넌트
     console.log('printConsole2', this.state); // 현재 컴포넌트에 저장된 state
@@ -55,9 +60,13 @@ class ClassBind extends Component {
     return (
       <div>
         <h1>Class Component Event</h1>
+        <button onClick={this.printConsole2.bind(this)}>
+          PrintConsole(인자X)
+        </button>
         <button onClick={this.printConsole}>printConsole(인자X)</button>
+
         {/* 이렇게 하면 bind와 동일한 작동이 됨,, */}
-        <button onClick={() => this.printConsole2('안녕')}>
+        <button onClick={() => this.printConsole3('안녕')}>
           printConsole(인자O)
         </button>
       </div>
