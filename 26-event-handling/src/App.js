@@ -3,6 +3,9 @@ import ClassBind from './ClassBind';
 import SyntheticEvent from './SyntheticEvent';
 import Counter from './Counter';
 import Ex from './Ex';
+import Ex2 from './Ex2';
+import Ex3 from './Ex3';
+import ExAll from './exAll/ExAll';
 
 function App() {
   return (
@@ -20,6 +23,15 @@ function App() {
 
       {/* 코딩온 실습 풀이 */}
       <Ex />
+      <hr />
+
+      <Ex2 />
+      <hr />
+
+      <Ex3 />
+      <hr />
+
+      <ExAll />
     </div>
   );
 }

@@ -4,7 +4,7 @@ function Result(props) {
 
   return (
     <div style={{ display: 'block' }}>
-      <img src={`${fruit}.png`} width={100} height={100} />
+      <img src={`${fruit}.png`} width={100} height={100} alt={fruit} />
 
       <div
         style={{
