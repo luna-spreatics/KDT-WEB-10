@@ -59,7 +59,7 @@
   background-color: $color-third;
 }
 
-@media (max-width: #{$breakpoint-sm}) {
+@media (max-width: $breakpoint-sm) {
   // @media (max-width: 360px)
   .container {
     flex-direction: column;
