@@ -7,11 +7,12 @@ function App() {
   return (
     <div className="App">
       {/* 클래스형 컴포넌트 Life Cycle */}
-      <LifeCycleFunc />
+      <LifeCycleClass />
+
       <hr />
 
       {/* 함수형 컴포넌트 Life Cycle */}
-      <LifeCycleClass />
+      <LifeCycleFunc />
       <hr />
 
       {/* 코딩온 실습 */}
